@@ -7,12 +7,15 @@ export default function Home() {
   const [a, setA] = useState(true);
 
   return (
-    <div className="bg-red-500">
-      <Container $aa={a}>hihi</Container>
+    <HomeRoot>
+      <Container $aa={a}>hiahi</Container>
       <div>hihi</div>
-    </div>
+    </HomeRoot>
   );
 }
+const HomeRoot = tw.main`
+  bg-red-500
+`;
 
 const Container = tw.div<{ $aa: boolean }>`
   flex bg-slate-500
