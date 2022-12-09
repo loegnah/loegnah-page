@@ -10,8 +10,8 @@ export default function MainHeader() {
 }
 
 const Root = tw.section`
-  bg-deep-1 ring-2 ring-deep-4 w-full h-28 flex items-center justify-between
-  fixed left-0 px-8
+  bg-deep-1 ring-2 ring-deep-4 w-full h-24 flex items-center justify-between
+  fixed left-0 top-0 px-10
 `;
 
 const TitleBox = tw(Link)`
