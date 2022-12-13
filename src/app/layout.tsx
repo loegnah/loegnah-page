@@ -1,13 +1,13 @@
 import '@/styles/globals.css';
-import MainHeader from '../components/mainHeader';
 import tw from 'tailwind-styled-components';
+import Header from './Header';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head />
       <Body>
-        <MainHeader />
+        <Header />
         {children}
       </Body>
     </html>

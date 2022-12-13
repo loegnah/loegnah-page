@@ -1,15 +1,15 @@
 import tw from 'tailwind-styled-components';
 import Link from 'next/link';
 
-export default function MainHeader() {
+export default function Header() {
   return (
-    <Root>
+    <Wrapper>
       <TitleBox href="/">Loegnah Page</TitleBox>
-    </Root>
+    </Wrapper>
   );
 }
 
-const Root = tw.section`
+const Wrapper = tw.section`
   bg-deep-1 ring-2 ring-deep-4 w-full h-24 flex items-center justify-between
   fixed left-0 top-0 px-10
 `;

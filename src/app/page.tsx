@@ -1,16 +1,16 @@
 import tw from 'tailwind-styled-components';
-import HomeWidget from '../components/homeWidget';
+import Widget from '@/components/Widget';
 
-export default function Home() {
+export default function RootPage() {
   return (
-    <HomeRoot>
-      <HomeWidget />
-      <HomeWidget />
-      <HomeWidget />
-    </HomeRoot>
+    <Wrapper>
+      <Widget />
+      <Widget />
+      <Widget />
+    </Wrapper>
   );
 }
-const HomeRoot = tw.main`
+const Wrapper = tw.main`
   px-2 py-6 bg-deep-2
   flex flex-col gap-y-6
 `;
