@@ -1,7 +1,12 @@
 import tw from 'tailwind-styled-components';
 import Widget from '@/components/Widget';
+import { defaultCoins } from '@/constants/coins';
+import { getCoinCurPrices } from '@/lib/upbit';
 
-export default function RootPage() {
+export default async function RootPage() {
+  const coinInfoList = await getCoinCurPrices(defaultCoins);
+  console.log(coinInfoList);
+
   return (
     <Wrapper>
       <Widget />
