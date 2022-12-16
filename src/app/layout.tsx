@@ -2,7 +2,11 @@ import '@/styles/globals.css';
 import tw from 'tailwind-styled-components';
 import Header from './Header';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+type Props = {
+  children: React.ReactNode;
+};
+
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <head />
