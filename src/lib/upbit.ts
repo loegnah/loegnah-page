@@ -10,20 +10,26 @@ export type CoinInfo = {
   change: 'EVEN' | 'RISE' | 'FALL';
 };
 
-function fetchCoinPrice(coin: string, market: Market = 'KRW') {
-  return fetch(`https://api.upbit.com/v1/ticker?markets=${market}-${coin}`, {
+async function fetchData(URL: string) {
+  const res = await fetch(URL, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
     },
     next: { revalidate: 300 },
   });
+  return await res.json();
 }
 
-export async function fetchCoinInfos(
+export async function fetchCoinPrice(coin: string, market: Market = 'KRW'): Promise<[CoinInfo]> {
+  return fetchData(`https://api.upbit.com/v1/ticker?markets=${market}-${coin}`);
+}
+
+export async function fetchCoinsPrice(
   coinNames: string[],
   market: Market = 'KRW'
 ): Promise<CoinInfo[]> {
-  const responses = coinNames.map((coinName) => fetchCoinPrice(coinName, market));
-  return Promise.all(responses.map(async (response) => (await response).json()));
+  const markets = coinNames.map((coinName) => `${market}-${coinName}`).join(', ');
+  console.log(markets);
+  return fetchData(`https://api.upbit.com/v1/ticker?markets=${markets}`);
 }

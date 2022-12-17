@@ -1,17 +1,16 @@
 import tw from 'tailwind-styled-components';
 import Widget from '@/components/widgets/Widget';
-import { fetchCoinInfos } from '@/lib/upbit';
+import { fetchCoinPrice, fetchCoinsPrice } from '@/lib/upbit';
 import { defaultCoinNames } from '@/constants/coins';
 
 export default async function UpbitWidget() {
-  const coinInfos = await fetchCoinInfos(defaultCoinNames);
+  const coinInfos = await fetchCoinsPrice(defaultCoinNames);
 
   return (
     <Widget>
       <Wrapper>
-        {coinInfos.map(({ market }, idx) => {
-          console.log(market);
-          return <CoinBox key={idx}>{market}</CoinBox>;
+        {coinInfos.map(({ market, trade_price }, idx) => {
+          return <CoinBox key={idx}>{`${market}: ${trade_price}`}</CoinBox>;
         })}
       </Wrapper>
     </Widget>
