@@ -1,6 +1,6 @@
 import tw from 'tailwind-styled-components';
 import Widget from '@/components/widgets/Widget';
-import { fetchCoinPrice, fetchCoinsPrice } from '@/lib/upbit';
+import { fetchCoinsPrice } from '@/lib/upbit';
 import { defaultCoinNames } from '@/constants/coins';
 
 export default async function UpbitWidget() {

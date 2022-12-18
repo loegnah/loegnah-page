@@ -1,6 +1,6 @@
 type Market = 'KRW' | 'BTC';
 
-export type CoinInfo = {
+type CoinTradeInfo = {
   market: string;
   trade_date: string;
   trade_time: string;
@@ -10,26 +10,44 @@ export type CoinInfo = {
   change: 'EVEN' | 'RISE' | 'FALL';
 };
 
-async function fetchData(URL: string) {
+type CoinNameInfo = {
+  market: string;
+  korean_name: string;
+  english_name: string;
+};
+
+async function fetchData(
+  URL: string,
+  option?: { cache?: RequestCache; next?: NextFetchRequestConfig }
+) {
   const res = await fetch(URL, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
     },
-    next: { revalidate: 300 },
+    cache: option?.cache || 'force-cache',
+    next: option?.next || { revalidate: false },
   });
   return await res.json();
 }
 
-export async function fetchCoinPrice(coin: string, market: Market = 'KRW'): Promise<[CoinInfo]> {
+export async function fetchCoinPrice(
+  coin: string,
+  market: Market = 'KRW'
+): Promise<[CoinTradeInfo]> {
   return fetchData(`https://api.upbit.com/v1/ticker?markets=${market}-${coin}`);
 }
 
 export async function fetchCoinsPrice(
   coinNames: string[],
   market: Market = 'KRW'
-): Promise<CoinInfo[]> {
+): Promise<CoinTradeInfo[]> {
   const markets = coinNames.map((coinName) => `${market}-${coinName}`).join(', ');
-  console.log(markets);
   return fetchData(`https://api.upbit.com/v1/ticker?markets=${markets}`);
+}
+
+async function fetchAllCoinNames(): Promise<CoinNameInfo[]> {
+  return fetchData(`https://api.upbit.com/v1/market/all`, {
+    next: { revalidate: 60 * 60 * 24 },
+  });
 }
