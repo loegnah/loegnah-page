@@ -46,7 +46,7 @@ export async function fetchCoinsPrice(
   return fetchData(`https://api.upbit.com/v1/ticker?markets=${markets}`);
 }
 
-async function fetchAllCoinNames(): Promise<CoinNameInfo[]> {
+export async function fetchAllCoinNames(): Promise<CoinNameInfo[]> {
   return fetchData(`https://api.upbit.com/v1/market/all`, {
     next: { revalidate: 60 * 60 * 24 },
   });
