@@ -12,12 +12,15 @@ export default function RootLayout({ children }: Props) {
       <head />
       <Body>
         <Header />
-        {children}
+        <Main>{children}</Main>
       </Body>
     </html>
   );
 }
 
 const Body = tw.body`
-  pt-24 lg:px-20 2xl:px-28
+`;
+
+const Main = tw.main`
+  px-20 2xl:px-28
 `;

@@ -1,19 +1,23 @@
 import tw from 'tailwind-styled-components';
 import Link from 'next/link';
+import NavBar from '@/app/NavBar';
 
 export default function Header() {
   return (
     <Wrapper>
       <TitleBox href="/">Loegnah Page</TitleBox>
+      <NavBar />
     </Wrapper>
   );
 }
 
 const Wrapper = tw.section`
-  bg-deep-1 ring-2 ring-deep-4 w-full h-24 flex items-center justify-between
-  fixed left-0 top-0 px-10
+  flex items-center gap-x-10
+  w-full h-20 px-10
+  sticky
+  bg-deep-1 ring-2 ring-deep-4  
 `;
 
 const TitleBox = tw(Link)`
-  w-30 text-3xl
+  w-30 text-2xl
 `;
