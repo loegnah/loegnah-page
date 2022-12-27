@@ -1,6 +1,6 @@
 import tw from 'tailwind-styled-components';
 import Link from 'next/link';
-import NavBar from '@/app/NavBar';
+import NavBar from '@/components/NavBar';
 
 export default function Header() {
   return (
@@ -14,8 +14,8 @@ export default function Header() {
 const Wrapper = tw.section`
   flex items-center gap-x-10
   w-full h-20 px-10
+  shadow-md shadow-themeA-shadow
   sticky
-  bg-deep-1 ring-2 ring-deep-4  
 `;
 
 const TitleBox = tw(Link)`

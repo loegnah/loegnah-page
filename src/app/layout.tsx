@@ -19,6 +19,7 @@ export default function RootLayout({ children }: Props) {
 }
 
 const Body = tw.body`
+  bg-themeA-bg text-themeA-blackFont
 `;
 
 const Main = tw.main`
