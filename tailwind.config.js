@@ -8,6 +8,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        themeA: {
+          bg: '#E0DDDD',
+          shadow: '#999999',
+          blackFont: '#222222',
+        },
         deep: {
           1: '#f8f9fa',
           2: '#e9ecef',
@@ -19,6 +24,13 @@ module.exports = {
           8: '#343a40',
           9: '#212529',
         },
+      },
+
+      fontFamily: {
+        jua: ['var(--font-jua)'],
+        black_han_sans: ['var(--font-black_han_sans)'],
+        nanum_gothic: ['var(--font-nanum_gothic)'],
+        nanum_gothic_coding: ['var(--font-nanum_gothic_coding)'],
       },
     },
   },
