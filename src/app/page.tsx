@@ -1,5 +1,4 @@
 import tw from 'tailwind-styled-components';
-import UpbitWidget from '@/components/widgets/UpbitWidget';
 
 export default async function RootPage() {
   return <Wrapper></Wrapper>;

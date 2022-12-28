@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       colors: {
         themeA: {
-          bg: '#EEE9D9',
+          bg: '#E0DDDD',
           shadow: '#999999',
           blackFont: '#222222',
         },
@@ -24,6 +24,13 @@ module.exports = {
           8: '#343a40',
           9: '#212529',
         },
+      },
+
+      fontFamily: {
+        jua: ['var(--font-jua)'],
+        black_han_sans: ['var(--font-black_han_sans)'],
+        nanum_gothic: ['var(--font-nanum_gothic)'],
+        nanum_gothic_coding: ['var(--font-nanum_gothic_coding)'],
       },
     },
   },
