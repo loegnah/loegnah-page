@@ -1,1 +1,18 @@
-export const defaultCoinNames = ['BTC', 'ETC', 'SOL', 'DOGE', 'XRP', 'ADA', 'LINK', 'SAND'];
+export const defaultCoinNames = [
+  'BTC',
+  'ETC',
+  'SOL',
+  'DOGE',
+  'XRP',
+  'MATIC',
+  'DOT',
+  'ADA',
+  'BCH',
+  'XLM',
+  'LINK',
+  'SAND',
+  'MANA',
+  'NEAR',
+  'APT',
+  'EOS',
+];

@@ -1,13 +1,16 @@
 type Market = 'KRW' | 'BTC';
 
-type CoinTradeInfo = {
+export type CoinTradeInfo = {
   market: string;
   trade_date: string;
   trade_time: string;
   trade_date_kst: string;
   trade_time_kst: string;
   trade_price: number;
+  prev_closing_price: number;
   change: 'EVEN' | 'RISE' | 'FALL';
+  change_price: number;
+  change_rate: number;
 };
 
 type CoinNameInfo = {

@@ -21,7 +21,6 @@ const Wrapper = tw.section`
   flex items-center gap-x-12
   w-full h-20 px-10
   shadow-md shadow-themeA-shadow
-  font-black_han_sans
   sticky
 `;
 
@@ -32,7 +31,7 @@ const TitleBox = tw(Link)`
 
 const NavBox = tw.section`
   flex gap-x-8
-  text-md 
+  text-md font-black_han_sans
 `;
 
 const NavBtn = tw(Link)`
