@@ -11,7 +11,7 @@ export default async function UpbitWidget() {
     <Widget>
       <Wrapper>
         {coinInfos.map((coinInfo, idx) => (
-          <CoinBox coinInfo={coinInfo} key={idx} />
+          <CoinBox coinInfo={coinInfo} size={(idx % 4) as any} key={idx} />
         ))}
       </Wrapper>
     </Widget>
@@ -19,7 +19,7 @@ export default async function UpbitWidget() {
 }
 
 const Wrapper = tw.div`
-  grid grid-cols-8 grid-rows-8 gap-2
+  grid grid-cols-8 grid-rows-8 gap-2 grid-flow-dense
   h-96
   font-bold
 `;
