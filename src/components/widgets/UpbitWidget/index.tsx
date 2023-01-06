@@ -11,7 +11,7 @@ export default async function UpbitWidget() {
     <Widget>
       <Wrapper>
         {coinInfos.map((coinInfo, idx) => (
-          <CoinBox coinInfo={coinInfo} size={(idx % 4) as any} order={idx} key={idx} />
+          <CoinBox coinInfo={coinInfo} order={idx} key={idx} />
         ))}
       </Wrapper>
     </Widget>
