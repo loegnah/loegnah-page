@@ -4,6 +4,9 @@ import { useState, useRef } from 'react';
 import tw from 'tailwind-styled-components';
 import type { CoinTradeInfo } from '@/lib/upbit';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import upDouble from '~/public/icons/upDouble.svg';
+import downDouble from '~/public/icons/downDouble.svg';
 
 type Props = {
   coinInfo: CoinTradeInfo;
@@ -43,10 +46,11 @@ export default function CoinBox({ coinInfo, order }: Props) {
           <NameBox>{`${market.substring(4)}`}</NameBox>
           <ArrowBox
             $change={realChange}
-            initial={{ y: realChange === 'FALL' ? 0 : heightByLevel[change_level], opacity: 0 }}
+            initial={{
+              y: realChange === 'FALL' ? 0 : heightByLevel[change_level],
+            }}
             animate={{
               y: realChange === 'FALL' ? heightByLevel[change_level] : 0,
-              opacity: realChange !== 'EVEN' ? 1 : 0,
             }}
             transition={{
               type: 'spring',
@@ -57,7 +61,17 @@ export default function CoinBox({ coinInfo, order }: Props) {
               repeatDelay: 2,
             }}
           >
-            o
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: realChange !== 'EVEN' ? 1 : 0 }}
+              transition={{ delay: 5 }}
+            >
+              {realChange === 'RISE' ? (
+                <Arrow src={upDouble} alt="upDouble" width={16} />
+              ) : (
+                <Arrow src={downDouble} alt="downDouble" width={16} />
+              )}
+            </motion.div>
           </ArrowBox>
         </MotionDiv>
       </motion.div>
@@ -88,6 +102,10 @@ const ArrowBox = tw(motion.div)<{
 }>`
   text-sm
   ${({ $change }) => styleByChange[$change]}
+`;
+
+const Arrow = tw(Image)`
+  contrast-200
 `;
 
 const spanByLevel: { [key in CoinTradeInfo['change_level']]: string } = {
