@@ -20,8 +20,9 @@ export default function RootLayout({ children }: Props) {
 }
 
 const Body = tw.body`
+  min-w-[1080px]
   bg-themeA-bg text-themeA-blackFont
-  font-jua
+  font-nanum_gothic
 `;
 
 const Main = tw.section`
