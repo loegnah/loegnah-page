@@ -2,9 +2,18 @@ import '@/styles/globals.css';
 import tw from 'tailwind-styled-components';
 import Header from './Header';
 import { fontVariables } from '@/lib/fonts';
+import { Metadata } from 'next';
 
 type Props = {
   children: React.ReactNode;
+};
+
+export const metadata: Metadata = {
+  title: 'Loegnah Page',
+  description: 'Loegnah Homepage',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }: Props) {
