@@ -35,8 +35,6 @@ const NavBox = tw.section`
 `;
 
 const NavBtn = tw(Link)`
-  
   opacity-40 ease-in-out duration-200
   hover:opacity-100 
 `;
-
