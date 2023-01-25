@@ -1,6 +1,6 @@
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import { getPageMDContent } from '@/lib/notion';
 import ReactMarkdown from 'react-markdown';
+import { getPageMDContent } from '@/lib/notion';
+import styles from './styles.module.css';
 
 type Props = {
   params: {
@@ -11,10 +11,13 @@ type Props = {
 export default async function BlogPost({ params: { postNum } }: Props) {
   const notionMDString = await getPageMDContent(postNum);
   return (
-    <div className="notionMarkdown">
-      {/* @ts-ignore */}
-      {/*<MDXRemote source={notionMDString} />*/}
-      <ReactMarkdown>{notionMDString}</ReactMarkdown>
-    </div>
+    <ReactMarkdown
+      className={styles.notionMarkdown}
+      components={{
+        pre: ({ children }) => <h2>{children}</h2>,
+      }}
+    >
+      {notionMDString}
+    </ReactMarkdown>
   );
 }
