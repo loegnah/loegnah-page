@@ -5,7 +5,7 @@ import {
   Nanum_Gothic_Coding,
   Nanum_Gothic,
   Black_Han_Sans,
-} from '@next/font/google';
+} from 'next/font/google';
 
 // export const nanum_pen_script = Nanum_Pen_Script({
 //   variable: '--font-nanum_pen_script',

@@ -1,7 +1,6 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@next/font': ^13.2.1
   '@notionhq/client': ^2.2.3
   '@types/lodash': ^4.14.191
   '@types/node': ^18.14.1
@@ -30,7 +29,6 @@ specifiers:
   typescript: ^4.9.5
 
 dependencies:
-  '@next/font': registry.npmjs.org/@next/font/13.2.1
   '@notionhq/client': registry.npmjs.org/@notionhq/client/2.2.3_encoding@0.1.13
   chart.js: registry.npmjs.org/chart.js/4.2.1
   encoding: registry.npmjs.org/encoding/0.1.13
@@ -190,12 +188,6 @@ packages:
     dependencies:
       glob: registry.npmjs.org/glob/7.1.7
     dev: true
-
-  registry.npmjs.org/@next/font/13.2.1:
-    resolution: {integrity: sha512-4sergLt7xp9+mZuKME/xM4tLlHGTcmL7naCq0qCTcAlof6NnttshYgiLOdhSiy0NcI+/yM3BjvdEk++O96UzTg==, registry: https://registry.npmjs.cf/, tarball: https://registry.npmjs.org/@next/font/-/font-13.2.1.tgz}
-    name: '@next/font'
-    version: 13.2.1
-    dev: false
 
   registry.npmjs.org/@next/swc-android-arm-eabi/13.2.1:
     resolution: {integrity: sha512-Yua7mUpEd1wzIT6Jjl3dpRizIfGp9NR4F2xeRuQv+ae+SDI1Em2WyM9m46UL+oeW5GpMiEHoaBagr47RScZFmQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@next/swc-android-arm-eabi/-/swc-android-arm-eabi-13.2.1.tgz}
