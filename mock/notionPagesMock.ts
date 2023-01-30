@@ -1,4 +1,18 @@
-export const notionPage1 = `
+import _ from 'lodash';
+
+export function getNotionPageTitleMock(pageID: string) {
+  return _.get(pageMarkdowns, [pageID, 'title'], null);
+}
+
+export function getNotionPageContentMock(pageID: string) {
+  return _.get(pageMarkdowns, [pageID, 'content'], null);
+}
+
+export const pageMarkdowns: Record<string, { title: string; content: string }> = {
+  c433dd0bf50743dc889bac0720997008: {
+    title: 'nest.js - fly.io로 배포하기',
+    content: `
+
 ## 배경
 
 **nest.js**로 작성한 앱을 **fly.io**로 배포하려고 한다. fly.io에서 공식적으로 가이드가 따로 있는건 아니다. 그래서 **Dockerfile**을 이용해서 직접 배포하는 방식을 사용한다.
@@ -30,7 +44,7 @@ ENTRYPOINT ["pnpm","start:prod"]
 
 ## fly.toml 파일 작성
 
-내부적으론 **3000**번 포트를 쓰고 외부로 공개되는 포트는 **http/https 기본 포트(80,443)**으로 사용했다.
+내부적으론 **3000**번 포트를 쓰고 외부로 공개되는 포트는 **http/https 기본 포트(80,443)** 으로 사용했다.
 
 \`\`\`toml
 app = "APP_NAME"
@@ -83,4 +97,8 @@ fly launch
 \`\`\`shell
 fly deploy
 \`\`\`
-`;
+
+`,
+  },
+  '90d2ac1aec28429baa5693b59c75cbc5': { title: '', content: 'test page' },
+};

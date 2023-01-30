@@ -30,7 +30,8 @@ export default function RootLayout({ children }: Props) {
 
 const Body = tw.body`
   min-w-[1080px]
-  bg-themeA-bg text-themeA-blackFont
+  bg-white
+  text-themeA-blackFont
   font-nanum_gothic
 `;
 
