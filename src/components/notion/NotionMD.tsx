@@ -44,7 +44,6 @@ export default function NotionMD({ content, title, codeTheme }: Props) {
 }
 
 const Wrapper = tw.main`
-  py-4
 `;
 
 const TitleBox = tw.div`

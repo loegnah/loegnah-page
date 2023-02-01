@@ -1,6 +1,7 @@
 import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { getPageInfos, getNotionPage } from '@/lib/notion';
 import NotionMD from '@/components/notion/NotionMD';
+import { notFound } from 'next/navigation';
 
 type Props = {
   params: {
@@ -16,13 +17,13 @@ export async function generateStaticParams() {
 export default async function BlogPost({ params: { postNum } }: Props) {
   const notionPage = await getNotionPage(postNum);
 
+  if (!notionPage) {
+    notFound();
+  }
+
   return (
     <>
-      {notionPage ? (
-        <NotionMD title={notionPage.title} content={notionPage.content} codeTheme={dark} />
-      ) : (
-        <div>Error</div>
-      )}
+      <NotionMD title={notionPage.title} content={notionPage.content} codeTheme={dark} />
     </>
   );
 }
