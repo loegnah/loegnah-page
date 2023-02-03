@@ -14,16 +14,12 @@ export async function generateStaticParams() {
   return pageInfos.map(({ postNum }) => ({ postNum: String(postNum) }));
 }
 
-export default async function BlogPost({ params: { postNum } }: Props) {
+export default async function BlogPostPage({ params: { postNum } }: Props) {
   const notionPage = await getNotionPage(postNum);
 
   if (!notionPage) {
     notFound();
   }
 
-  return (
-    <>
-      <NotionMD title={notionPage.title} content={notionPage.content} codeTheme={dark} />
-    </>
-  );
+  return <NotionMD title={notionPage.title} content={notionPage.content} codeTheme={dark} />;
 }
