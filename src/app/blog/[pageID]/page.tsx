@@ -16,7 +16,6 @@ export async function generateStaticParams() {
 
 export default async function BlogPostPage({ params: { pageID } }: Props) {
   const notionPage = await getNotionPage(pageID);
-
   if (!notionPage) {
     notFound();
   }

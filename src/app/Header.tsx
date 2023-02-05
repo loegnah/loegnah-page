@@ -8,7 +8,7 @@ export default function Header() {
       <TitleBox href="/">Loegnah Page</TitleBox>
       <NavBox>
         {NavList.map((navName, idx) => (
-          <NavBtn key={idx} href={`${navName.toLowerCase()}`}>
+          <NavBtn key={idx} href={`/${navName.toLowerCase()}`}>
             {navName}
           </NavBtn>
         ))}

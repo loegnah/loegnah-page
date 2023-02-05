@@ -1,7 +1,11 @@
 import _ from 'lodash';
 import { Client } from '@notionhq/client';
 import { NotionToMarkdown } from 'notion-to-md';
-import { getNotionPageContentMock, getNotionPageTitleMock } from '~/mock/notionPagesMock';
+import {
+  getNotionPageContentMock,
+  getNotionPageTitleMock,
+  getPageInfosMock,
+} from '~/mock/notionPagesMock';
 import { isDev } from '@/lib/utils';
 
 type DBPage = {
@@ -20,6 +24,10 @@ const notion = new Client({ auth: process.env.NOTION_API_SECRET_KEY });
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
 function extractDataFromPages(pages: DBPage[]) {
+  if (isDev()) {
+    const pageInfosMock = getPageInfosMock();
+    if (pageInfosMock) return pageInfosMock;
+  }
   return _.sortBy(
     pages.map(({ properties: { postNum, tag, link } }) => {
       return {
