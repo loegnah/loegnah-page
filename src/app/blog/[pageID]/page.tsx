@@ -5,17 +5,17 @@ import { notFound } from 'next/navigation';
 
 type Props = {
   params: {
-    postNum: string;
+    pageID: string;
   };
 };
 
 export async function generateStaticParams() {
   const pageInfos = await getPageInfos();
-  return pageInfos.map(({ postNum }) => ({ postNum: String(postNum) }));
+  return pageInfos.map(({ pageID }) => ({ pageID }));
 }
 
-export default async function BlogPostPage({ params: { postNum } }: Props) {
-  const notionPage = await getNotionPage(postNum);
+export default async function BlogPostPage({ params: { pageID } }: Props) {
+  const notionPage = await getNotionPage(pageID);
 
   if (!notionPage) {
     notFound();

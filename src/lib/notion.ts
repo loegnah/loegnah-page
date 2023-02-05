@@ -7,7 +7,7 @@ import { isDev } from '@/lib/utils';
 type DBPage = {
   properties: {
     postNum: { title: [{ plain_text: string }] };
-    link: { rich_text: Array<{ mention: { page: { id: string } } }> };
+    link: { rich_text: Array<{ mention: { page: { id: string } }; plain_text: string }> };
     tag: {
       multi_select: Array<{
         name: string;
@@ -19,18 +19,14 @@ type DBPage = {
 const notion = new Client({ auth: process.env.NOTION_API_SECRET_KEY });
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
-const PageIDMap: string[] = [
-  process.env.NOTION_PAGE_ID_1 as string,
-  process.env.NOTION_PAGE_ID_2 as string,
-];
-
 function extractDataFromPages(pages: DBPage[]) {
   return _.sortBy(
     pages.map(({ properties: { postNum, tag, link } }) => {
       return {
         postNum: Number(postNum.title[0].plain_text),
-        pageID: link.rich_text[0].mention.page.id,
         tags: tag.multi_select.map((t) => t['name']),
+        pageID: link.rich_text[0].mention.page.id,
+        title: link.rich_text[0].plain_text,
       };
     }),
     ['postNum']
@@ -65,11 +61,7 @@ async function getPageContent(pageID: string) {
   return n2m.toMarkdownString(pageBlocks);
 }
 
-export async function getNotionPage(postNumRaw: string | number) {
-  const postNum = Number(postNumRaw);
-  const pageID = _.get(PageIDMap, postNum - 1, null);
-  if (pageID === null) return null;
-
+export async function getNotionPage(pageID: string) {
   const title = await getPageTitle(pageID);
   if (!title) return null;
 

@@ -4,7 +4,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export default function BlogPostLayout({ children }: Props) {
+export default function BlogLayout({ children }: Props) {
   return <Layout>{children}</Layout>;
 }
 
